@@ -1,0 +1,97 @@
+# DamageIndicators - chizzar-dev
+# https://github.com/chizzar-dev/DamageIndicators
+#
+# Yer tutucular:
+#   %damage%  hasar        %current% kalan can
+#   %max%     maks can     %percent% can yuzdesi      %bar% can bari
+#
+# NOT: Kalp gibi simgeler (❤) bazi 1.8 istemcilerinde kutu gorunebilir.
+# Oyle bir durumda asagidaki simgeleri duz metinle degistir.
+
+# Bu dunyalarda hicbir sey gosterilmez
+disabled-worlds: []
+
+damage-indicator:
+  enabled: true
+  format: "&c-%damage%"
+  crit-format: "&e&l-%damage% ✹"
+  death-format: "&4&l☠"
+  heal-format: "&a+%damage%"
+
+  # true = yalnizca oyuncularin verdigi hasarda gosterilir
+  only-from-players: false
+  # Iyilesme de gosterilsin mi
+  show-heal: false
+
+  # Hasardaki ondalik basamak sayisi (0 = tam sayi)
+  decimals: 1
+  # Gosterge kac tick ekranda kalir (20 tick = 1 saniye)
+  duration-ticks: 20
+  # Yukari suzulme miktari (blok). 0 yaparsan sabit durur.
+  rise: 0.6
+  # Varligin kac blok ustunde belirsin
+  offset-y: 1.4
+  # Ust uste binmemesi icin rastgele yatay dagilim
+  random-spread: 0.5
+  # Ayni varlik icin iki gosterge arasi en az sure (ms).
+  # Lav/ates gibi hizli hasarlarda spam'i onler.
+  throttle-ms: 350
+
+  # Bu sebeplerden gelen hasarda gosterge cikmaz
+  ignored-causes:
+    - "FIRE"
+    - "FIRE_TICK"
+    - "LAVA"
+    - "DROWNING"
+    - "POISON"
+    - "WITHER"
+    - "SUFFOCATION"
+    - "STARVATION"
+    - "CONTACT"
+    - "HOT_FLOOR"
+    - "CRAMMING"
+
+  # Sebebe gore ozel bicim (istege bagli)
+  # Ornek:
+  #   FALL: "&7-%damage% ⚠"
+  causes: {}
+
+# Oyuncularin ismi ALTINDA can (herkes gorur)
+player-health:
+  enabled: true
+  symbol: "&c❤"
+  # Oyuncu listesinde (TAB) de gosterilsin mi
+  tablist: false
+
+# KENDI canini action bar'da gorme
+self-health:
+  actionbar: false
+  format: "&c❤ &f%current%&7/&f%max%"
+  interval-ticks: 10
+
+# Moblarin ustunde can gosterimi
+health-bar:
+  enabled: true
+  # NUMBER = "20 ❤"   |   BAR = "❤❤❤❤❤"
+  mode: NUMBER
+  number-format: "&f%current% &c❤"
+  # true  = surekli gorunur
+  # false = vurunca gorunur, hide-after saniye sonra gizlenir
+  always: true
+  refresh-ticks: 20
+  hide-after: 6
+  symbol: "❤"
+  length: 10
+  high-color: "&a"
+  medium-color: "&e"
+  low-color: "&c"
+  empty-color: "&7"
+  format: "%bar%"
+  # Bu varliklarda can bari gosterilmez
+  ignored:
+    - "ARMOR_STAND"
+    - "ENDER_DRAGON"
+    - "WITHER"
+
+messages:
+  reloaded: "&aDamageIndicators yeniden yuklendi."

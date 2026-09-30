@@ -1,0 +1,18 @@
+name: DamageIndicators
+version: ${project.version}
+main: com.metox.indicators.DamageIndicators
+api-version: 1.13
+author: chizzar-dev
+website: https://discord.gg/forges
+description: Hasar gostergesi, oyuncu can gosterimi ve mob can bari.
+
+commands:
+  dmgindicators:
+    description: Ayarlari yeniden yukle
+    usage: /dmgindicators reload
+    aliases: [di, dmg]
+
+permissions:
+  dmgindicators.reload:
+    description: Configi yeniden yukleyebilir
+    default: op
